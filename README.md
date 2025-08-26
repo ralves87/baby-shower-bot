@@ -123,16 +123,37 @@ Exemplo de corpo de mensagem no Gerenciador de WhatsApp:
 Crie um arquivo `.env` na raiz do projeto, baseado no `.env.sample`, e preencha com suas credenciais:
 
 ```
+# WhatsApp Business
 WHATSAPP_TOKEN=SEU_TOKEN_DO_WHATSAPP_BUSINESS_API
 WHATSAPP_PHONE_NUMBER_ID=SEU_ID_DO_NUMERO_DE_TELEFONE_DO_WHATSAPP
 WHATSAPP_VERIFY_TOKEN=SEU_TOKEN_DE_VERIFICACAO_DO_WHATSAPP
+
+# Admins
 ADMINS=9999999999999,8888888888888
+
+# Templates
+# Invite
+TEMPLATE_INVITE_NAME=NOME_DO_TEMPLATE_INVITE
+TEMPLATE_INVITE_IMAGE_ID=ID_DA_IMAGEM_DE_CONVITE
+# Reminder
+TEMPLATE_REMINDER_NAME=NOME_DO_TEMPLATE_REMIMDER
+TEMPLATE_REMINDER_LOCATION_LATITUDE=LATITUDE_DA_LOCALIZAÇÃO
+TEMPLATE_REMINDER_LOCATION_LONGITUDE=LONGITUDE_DA_LOCALIZAÇÃO
+TEMPLATE_REMINDER_LOCATION_NAME=NOME_DO_LOCAL
+TEMPLATE_REMINDER_LOCATION_ADDRESS=ENDEREÇO_DO_LOCAL
 ```
 
 - `WHATSAPP_TOKEN`: O token de acesso gerado pela API do WhatsApp Business.
 - `WHATSAPP_PHONE_NUMBER_ID`: O ID do seu número de telefone do WhatsApp Business API.
 - `WHATSAPP_VERIFY_TOKEN`: Um token de verificação que você define para validar o webhook do WhatsApp.
 - `ADMINS`: Número de telefone dos adminstradores separados por virgula e com código do país, exemplo: 551198765432
+- `TEMPLATE_INVITE_NAME`: Nome do template de mensagem de convite cadastrado na plataforma do WhatsApp Business.
+- `TEMPLATE_INVITE_IMAGE_ID`: ID da imagem associada ao template de convite, usada para enviar imagens junto com a mensagem.
+- `TEMPLATE_REMINDER_NAME`: Nome do template de mensagem de lembrete cadastrado na plataforma do WhatsApp Business.
+- `TEMPLATE_REMINDER_LOCATION_LATITUDE`: Latitude do local que será enviado no lembrete, útil para compartilhar localização.
+- `TEMPLATE_REMINDER_LOCATION_LONGITUDE`: Longitude do local que será enviado no lembrete.
+- `TEMPLATE_REMINDER_LOCATION_NAME`: Nome do local que será exibido na mensagem de lembrete.
+- `TEMPLATE_REMINDER_LOCATION_ADDRESS`: Endereço completo do local para ser exibido na mensagem de lembrete.
 
 ### Configuração Customizada (config.js)
 
