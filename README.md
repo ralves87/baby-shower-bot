@@ -25,6 +25,8 @@ Este repositório contém o código-fonte para o Baby Shower Bot, um gerenciador
 
 O Baby Shower Bot é uma aplicação Node.js que utiliza a API do WhatsApp Business para gerenciar convites e confirmações para chás de bebê. Ele permite o envio de convites personalizados, o acompanhamento de respostas e a coleta de informações importantes, como o tamanho das fraldas que os convidados pretendem trazer.
 
+<img src="https://i.postimg.cc/Bsw-p2MfS/example.png" width="200">
+
 ## Funcionalidades
 
 - Envio automatizado de convites via WhatsApp.
