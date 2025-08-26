@@ -1,3 +1,5 @@
+![Baby Shower BOT Banner](https://i.postimg.cc/PH4RcWYZ/Captura-de-Tela-2025-08-26-a-s-16-27-38.png)
+
 # Baby Shower Bot
 
 Este repositório contém o código-fonte para o Baby Shower Bot, um gerenciador de convites simples para eventos de chá de bebê. Este bot foi projetado para automatizar o processo de envio de convites, gerenciamento de confirmações e acompanhamento de itens como a contagem de fraldas.
