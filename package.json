@@ -1,0 +1,19 @@
+{
+  "name": "bs-bot",
+  "version": "1.0.0",
+  "description": "Baby Shower Bot - A simple invitation manager",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [],
+  "author": "Rafael Alves",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.11.0",
+    "body-parser": "^2.2.0",
+    "dotenv": "^17.2.1",
+    "express": "^5.1.0"
+  }
+}
