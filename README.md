@@ -181,15 +181,18 @@ templates: {
         name: process.env.TEMPLATE_INVITE_NAME || "", // Nome do modelo de convite (definido no Gerenciador do WhatsApp)
         imageId: process.env.TEMPLATE_INVITE_IMAGE_ID || "", // ID da imagem usada no cabeçalho do convite
     },
-    reminder: {
-        name: process.env.TEMPLATE_REMINDER_NAME || "", // Nome do modelo de lembrete (definido no Gerenciador do WhatsApp)
+    location: {
+        name: process.env.TEMPLATE_LOCATION_NAME || "", // Nome do modelo de localização (definido no Gerenciador do WhatsApp)
         location: {
-            latitude: process.env.TEMPLATE_REMINDER_LOCATION_LATITUDE || "", // Latitude da localização do evento
-            longitude: process.env.TEMPLATE_REMINDER_LOCATION_LONGITUDE || "", // Longitude da localização do evento
-            name: process.env.TEMPLATE_REMINDER_LOCATION_NAME || "", // Nome do local do evento
-            address: process.env.TEMPLATE_REMINDER_LOCATION_ADDRESS || "" // Endereço do evento
+            latitude: process.env.TEMPLATE_LOCATION_COORDINATES_LATITUDE || "", // Latitude da localização do evento
+            longitude: process.env.TEMPLATE_LOCATION_COORDINATES_LONGITUDE || "", // Longitude da localização do evento
+            name: process.env.TEMPLATE_LOCATION_COORDINATES_NAME || "", // Nome do local do evento
+            address: process.env.TEMPLATE_LOCATION_COORDINATES_ADDRESS || "" // Endereço do evento
         }
     },
+    reminder: {
+      name: process.env.TEMPLATE_REMINDER_NAME || ""
+    }
 },
   commands: {
     admin: {
