@@ -1,6 +1,6 @@
 import { loadGuests, loadConfirmations, saveConfirmations } from "../services/guests.js";
 import { distributeDiapers } from "../services/diapers.js";
-import { sendMessage, sendInvitation, sendReminder } from "../services/whatsapp.js";
+import { sendMessage, sendInvitation, sendLocation, sendReminder } from "../services/whatsapp.js";
 import config from "../config/config.js";
 
 export async function handleAdminCommand(phone, command) {
@@ -113,13 +113,29 @@ export async function handleAdminCommand(phone, command) {
     await sendMessage(phone, { type: "text", text: { body: msg } });
   }
 
-  if (command === config.commands.admin.reminder) {
+  if (command === config.commands.admin.location) {
     const confirmations = loadConfirmations();
     const confirmedGuests = confirmations.filter(g => g.status === true);
 
-    console.log("Sending reminder to confirmed guests:", confirmedGuests);
+    console.log("Sending location to confirmed guests:", confirmedGuests);
 
     for (const guest of confirmedGuests) {
+      await sendLocation(guest);
+    }
+
+    await sendMessage(phone, {
+      type: "text",
+      text: { body: config.messages.location_sent }
+    });
+  }
+
+  if (command === config.commands.admin.reminder) {
+    const confirmations = loadConfirmations();
+    const pendingGuests = confirmations.filter(g => g.status === 'pending');
+
+    console.log("Sending reminder to pending guests:", pendingGuests);
+
+    for (const guest of pendingGuests) {
       await sendReminder(guest);
     }
 

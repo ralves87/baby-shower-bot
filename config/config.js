@@ -14,7 +14,7 @@ export default {
     verifyToken: process.env.WHATSAPP_VERIFY_TOKEN || "",
   },
   deadlines: {
-    confirmation: "2025-08-25T23:59:59"
+    confirmation: "2025-11-01T23:59:59"
   },
   admins: process.env.ADMINS ? process.env.ADMINS.split(",") : [],
   templates: {
@@ -23,22 +23,26 @@ export default {
       name: process.env.TEMPLATE_INVITE_NAME || "",
       imageId: process.env.TEMPLATE_INVITE_IMAGE_ID || "",
     },
-    reminder: {
-      name: process.env.TEMPLATE_REMINDER_NAME || "",
-      location: {
-        latitude: process.env.TEMPLATE_REMINDER_LOCATION_LATITUDE || "",
-        longitude: process.env.TEMPLATE_REMINDER_LOCATION_LONGITUDE || "",
-        name: process.env.TEMPLATE_REMINDER_LOCATION_NAME || "",
-        address: process.env.TEMPLATE_REMINDER_LOCATION_ADDRESS || ""
+    location: {
+      name: process.env.TEMPLATE_LOCATION_NAME || "",
+      coordinates: {
+        latitude: process.env.TEMPLATE_LOCATION_COORDINATES_LATITUDE || "",
+        longitude: process.env.TEMPLATE_LOCATION_COORDINATES_LONGITUDE || "",
+        name: process.env.TEMPLATE_LOCATION_COORDINATES_NAME || "",
+        address: process.env.TEMPLATE_LOCATION_COORDINATES_ADDRESS || ""
       }
     },
+    reminder: {
+      name: process.env.TEMPLATE_REMINDER_NAME || ""
+    }
   },
   commands: {
     admin: {
       send: "/ENVIAR",
       list: "/CONVIDADOS",
       missing: "/FRALDAS",
-      reminder: "/LEMBRETE",
+      location: "/LOCALIZAÇÃO",
+      reminder: "/LEMBRETE"
     },
     user: {
       confirm: "CONFIRMAR"
@@ -59,7 +63,9 @@ export default {
     decline: "Que pena, sem problemas! Mas se mudar de ideia, é só mandar a qualquer momento uma mensagem com a palavra: *CONFIRMAR*",
     all_invites_sent: "Convites enviados com sucesso.",
     no_pending_invites: "Nenhum convite pendente para envio.",
-    reminder_sent: "Lembretes enviados para todos os confirmados!"
+    location_sent: "Localização enviada para todos os confirmados!",
+    reminder_sent: "Lembrete enviado para todos os convidados pendentes!",
+    unknown: "Oi 👋, este número é gerenciado por um BOT, infelizmente não conseguimos ler sua mensagem. Qualquer dúvida entre em contato com os responsáveis no privado."
   },
   titles: {
     confirmation_list: "📋 Lista de confirmações:",

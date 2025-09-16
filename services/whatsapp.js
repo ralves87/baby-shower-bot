@@ -55,11 +55,11 @@ export async function sendInvitation(guest) {
   console.log(`Invite sent to ${guest.name}`);
 }
 
-export async function sendReminder(guest) {
+export async function sendLocation(guest) {
   const content = {
     type: "template",
     template: {
-      name: config.templates.reminder.name,
+      name: config.templates.location.name,
       language: { code: config.templates.language },
       components: [
         {
@@ -68,14 +68,35 @@ export async function sendReminder(guest) {
             {
               type: "location",
               location: {
-                  latitude: config.templates.reminder.location.latitude,
-                  longitude: config.templates.reminder.location.longitude,
-                  name: config.templates.reminder.location.name,
-                  address: config.templates.reminder.location.address
+                  latitude: config.templates.location.coordinates.latitude,
+                  longitude: config.templates.location.coordinates.longitude,
+                  name: config.templates.location.coordinates.name,
+                  address: config.templates.location.coordinates.address
               }
             }
           ]
         },
+        {
+          type: "body",
+          parameters: [
+            { type: "text", text: guest.name },
+          ]
+        }
+      ]
+    }
+  };
+
+  await sendMessage(guest.phone, content);
+  console.log(`Location sent to ${guest.name}`);
+}
+
+export async function sendReminder(guest) {
+  const content = {
+    type: "template",
+    template: {
+      name: config.templates.reminder.name,
+      language: { code: config.templates.language },
+      components: [
         {
           type: "body",
           parameters: [

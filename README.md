@@ -137,12 +137,14 @@ ADMINS=9999999999999,8888888888888
 # Invite
 TEMPLATE_INVITE_NAME=NOME_DO_TEMPLATE_INVITE
 TEMPLATE_INVITE_IMAGE_ID=ID_DA_IMAGEM_DE_CONVITE
+# Location
+TEMPLATE_LOCATION_NAME=NOME_DO_TEMPLATE_LOCATION
+TEMPLATE_LOCATION_COORDINATES_LATITUDE=LATITUDE_DA_LOCALIZAÇÃO
+TEMPLATE_LOCATION_COORDINATES_LONGITUDE=LONGITUDE_DA_LOCALIZAÇÃO
+TEMPLATE_LOCATION_COORDINATES_NAME=NOME_DO_LOCAL
+TEMPLATE_LOCATION_COORDINATES_ADDRESS=ENDEREÇO_DO_LOCAL
 # Reminder
 TEMPLATE_REMINDER_NAME=NOME_DO_TEMPLATE_REMIMDER
-TEMPLATE_REMINDER_LOCATION_LATITUDE=LATITUDE_DA_LOCALIZAÇÃO
-TEMPLATE_REMINDER_LOCATION_LONGITUDE=LONGITUDE_DA_LOCALIZAÇÃO
-TEMPLATE_REMINDER_LOCATION_NAME=NOME_DO_LOCAL
-TEMPLATE_REMINDER_LOCATION_ADDRESS=ENDEREÇO_DO_LOCAL
 ```
 
 - `WHATSAPP_TOKEN`: O token de acesso gerado pela API do WhatsApp Business.
@@ -151,11 +153,12 @@ TEMPLATE_REMINDER_LOCATION_ADDRESS=ENDEREÇO_DO_LOCAL
 - `ADMINS`: Número de telefone dos adminstradores separados por virgula e com código do país, exemplo: 551198765432
 - `TEMPLATE_INVITE_NAME`: Nome do template de mensagem de convite cadastrado na plataforma do WhatsApp Business.
 - `TEMPLATE_INVITE_IMAGE_ID`: ID da imagem associada ao template de convite, usada para enviar imagens junto com a mensagem.
+- `TEMPLATE_LOCATION_NAME`: Nome do template de mensagem de localização cadastrado na plataforma do WhatsApp Business.
+- `TEMPLATE_LOCATION_COORDINATES_LATITUDE`: Latitude do local que será enviado na mensagem, útil para compartilhar localização.
+- `TEMPLATE_LOCATION_COORDINATES_LONGITUDE`: Longitude do local que será enviado na mensagem.
+- `TEMPLATE_LOCATION_COORDINATES_NAME`: Nome do local que será exibido na mensagem.
+- `TEMPLATE_LOCATION_COORDINATES_ADDRESS`: Endereço completo do local para ser exibido na mensagem.
 - `TEMPLATE_REMINDER_NAME`: Nome do template de mensagem de lembrete cadastrado na plataforma do WhatsApp Business.
-- `TEMPLATE_REMINDER_LOCATION_LATITUDE`: Latitude do local que será enviado no lembrete, útil para compartilhar localização.
-- `TEMPLATE_REMINDER_LOCATION_LONGITUDE`: Longitude do local que será enviado no lembrete.
-- `TEMPLATE_REMINDER_LOCATION_NAME`: Nome do local que será exibido na mensagem de lembrete.
-- `TEMPLATE_REMINDER_LOCATION_ADDRESS`: Endereço completo do local para ser exibido na mensagem de lembrete.
 
 ### Configuração Customizada (config.js)
 
@@ -193,6 +196,7 @@ templates: {
       send: "/ENVIAR", // Comando para enviar convites
       list: "/CONVIDADOS", // Comando para listar convidados
       missing: "/FRALDAS", // Comando para verificar fraldas faltantes
+      location: "/LOCALIZAÇÃO", // Comando para enviar a localização do evento
       reminder: "/LEMBRETE", // Comando para enviar lembretes
     },
     user: {
@@ -214,7 +218,9 @@ templates: {
     decline: "Que pena, sem problemas! Mas se mudar de ideia, é só mandar a qualquer momento uma mensagem com a palavra: *CONFIRMAR*",
     all_invites_sent: "Convites enviados com sucesso.",
     no_pending_invites: "Nenhum convite pendente para envio.",
-    reminder_sent: "Lembretes enviados para todos os confirmados!"
+    location_sent: "Localização enviada para todos os confirmados!",
+    reminder_sent: "Lembrete enviado para todos os convidados pendentes!",
+    unknown: "Oi 👋, este número é gerenciado por um BOT, infelizmente não conseguimos ler sua mensagem. Qualquer dúvida entre em contato com os responsáveis no privado."
   },
   titles: {
     confirmation_list: "📋 Lista de confirmações:",
